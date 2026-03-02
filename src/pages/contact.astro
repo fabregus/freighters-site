@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const heroImage = "/images/contact/contact-hero.png"; // put in /public/images/contact/
+const formAction = "https://example.com/your-form-endpoint"; // TODO: Formspree/Basin/Netlify
+
+const addressLines = ["XXXXXXX, XXXX, XXXX"];
+
+const reasons = [
+  { value: "", label: "" },
+  { value: "ocean", label: "Ocean Freight" },
+  { value: "air", label: "Air Freight" },
+  { value: "road", label: "Road Freight" },
+  { value: "rail", label: "Rail Freight" },
+  { value: "tailored", label: "Tailored Freight Solutions" },
+  { value: "other", label: "Other" },
+];
+---
+
+<Layout title="Contact | Freighters">
+  <Header lang="en" currentPath="/" />
+  <main class="bg-white">
+    <!-- hero image -->
+    <div class="w-full">
+      <div class="relative h-100 w-full overflow-hidden md:h-200">
+        <img
+          src={heroImage}
+          alt="Contact"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/35"></div>
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="container-site py-20">
+      <h1 class="text-[28px] tracking-[0.18em] text-black">CONTACT US</h1>
+
+      <div class="mt-24 grid gap-16 lg:grid-cols-2 lg:items-start">
+        <!-- left -->
+        <div>
+          <h2 class="text-[44px] font-light tracking-tight text-black">
+            GET IN TOUCH.
+          </h2>
+
+          <div class="mt-8 space-y-2 text-black/70">
+            {
+              addressLines.map((line) => (
+                <p class="text-sm tracking-wide">{line}</p>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- right: form -->
+        <div>
+          <form action={formAction} method="POST" class="relative">
+            <!-- NAME -->
+            <div class="mt-2">
+              <label class="block text-[11px] tracking-[0.18em] text-black/70"
+                >NAME</label
+              >
+              <input
+                name="name"
+                type="text"
+                required
+                class="mt-3 w-full border-b border-black/40 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+              />
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mt-10">
+              <label class="block text-[11px] tracking-[0.18em] text-black/70"
+                >E-MAIL</label
+              >
+              <input
+                name="email"
+                type="email"
+                required
+                class="mt-3 w-full border-b border-black/40 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+              />
+            </div>
+
+            <!-- REASON -->
+            <div class="mt-10 relative">
+              <label class="block text-[11px] tracking-[0.18em] text-black/70"
+                >REASON FOR CONTACT</label
+              >
+              <select
+                name="reason"
+                class="mt-3 w-full appearance-none border-b border-black/40 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+              >
+                {reasons.map((r) => <option value={r.value}>{r.label}</option>)}
+              </select>
+
+              <!-- chevron -->
+              <div
+                class="pointer-events-none absolute right-0 top-11 text-black/50"
+              >
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 9l6 6 6-6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="mt-10">
+              <label class="block text-[11px] tracking-[0.18em] text-black/70"
+                >MESSAGE</label
+              >
+              <textarea
+                name="message"
+                rows="4"
+                required
+                class="mt-3 w-full resize-none border-b border-black/40 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+              ></textarea>
+            </div>
+
+            <!-- send -->
+            <div class="mt-10 flex justify-end">
+              <button
+                type="submit"
+                class="text-[11px] tracking-[0.22em] text-[#F5B400] hover:text-[#dba300] transition"
+              >
+                SEND
+              </button>
+            </div>
+
+            <!-- honeypot -->
+            <input
+              type="text"
+              name="_gotcha"
+              class="hidden"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </main>
+</Layout>

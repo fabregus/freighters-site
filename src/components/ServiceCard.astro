@@ -1,0 +1,57 @@
+---
+const fallbackImage = "/images/services/ocean-freight.jpg";
+const { title, desc, image = fallbackImage, href = "/contact" } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative block overflow-hidden border border-black/10 bg-white"
+>
+  <!-- Media -->
+  <div class="relative aspect-[3/4] w-full overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      onerror={`this.onerror=null;this.src='${fallbackImage}'`}
+      class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+      loading="lazy"
+    />
+
+    <!-- darken layer -->
+    <div
+      class="absolute inset-0 bg-black/20 transition-opacity duration-500 group-hover:opacity-0"
+    >
+    </div>
+
+    <!-- title on image (default) -->
+    <div class="absolute inset-x-0 bottom-8 flex justify-center px-6">
+      <div
+        class="text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95
+               transition-all duration-500 ease-out
+               group-hover:translate-y-2 group-hover:opacity-0"
+      >
+        {title}
+      </div>
+    </div>
+  </div>
+
+  <!-- Yellow overlay: slide up -->
+  <div
+    class="absolute inset-0 flex flex-col justify-end bg-[#F5B400]
+           translate-y-[12%] opacity-0
+           transition-all duration-500 ease-out
+           group-hover:translate-y-0 group-hover:opacity-100"
+  >
+    <div class="px-10 pb-10 pt-24">
+      <p class="whitespace-pre-line text-[14px] leading-6 text-white/95">
+        {desc}
+      </p>
+
+      <div
+        class="mt-10 text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95"
+      >
+        {title}
+      </div>
+    </div>
+  </div>
+</a>

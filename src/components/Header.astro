@@ -1,0 +1,200 @@
+---
+const isEL = Astro.url.pathname.startsWith("/el");
+const isContactPage =
+  Astro.url.pathname === "/contact" || Astro.url.pathname === "/el/contact";
+const homeHref = isEL ? "/el" : "/";
+const contactHref = isEL ? "/el/contact" : "/contact";
+const langHref = isEL
+  ? isContactPage
+    ? "/contact"
+    : "/"
+  : isContactPage
+    ? "/el/contact"
+    : "/el";
+
+const defaultNav = [
+  { href: homeHref, label: "Home" },
+  { href: "#", label: "Services", disabled: true },
+  { href: "/about", label: "About Us" },
+  { href: contactHref, label: "Contact" },
+];
+const { nav = defaultNav } = Astro.props;
+
+const LangLabel = isEL ? "EN" : "EL";
+const Flag = isEL ? "🇬🇧" : "🇬🇷"; // showing the target language flag
+---
+
+<header class="absolute inset-x-0 top-0 z-50">
+  <div class="container-site">
+    <nav class="relative flex h-20 items-center">
+      <!-- left: logo -->
+      <a
+        href={isEL ? "/el" : "/"}
+        class="shrink-0 text-[#F5B400] text-2xl font-semibold"
+      >
+        freighters
+      </a>
+
+      <!-- center: desktop nav -->
+      <ul class="hidden flex-1 justify-center gap-16 text-white/90 md:flex">
+        {
+          nav.map((item) => (
+            <li>
+              {item.disabled ? (
+                <span
+                  class="cursor-not-allowed text-sm tracking-wide text-white/40"
+                  aria-disabled="true"
+                  title="Coming soon"
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <a
+                  href={item.href}
+                  class="text-sm tracking-wide hover:text-white transition"
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- right: language + mobile button -->
+      <div class="ml-auto flex items-center gap-4">
+        <!-- language switch -->
+        <a
+          href={langHref}
+          class="hidden items-center gap-2 text-white/85 hover:text-white transition md:flex"
+          aria-label="Switch language"
+        >
+          <span class="text-lg leading-none">{Flag}</span>
+          <span class="text-sm tracking-wide">{LangLabel}</span>
+        </a>
+
+        <!-- mobile menu button -->
+        <button
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
+          aria-label="Open menu"
+          data-menu-open
+        >
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 7h16M4 12h16M4 17h16"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- mobile drawer -->
+  <div class="fixed inset-0 z-50 hidden" data-menu-overlay aria-hidden="true">
+    <!-- backdrop -->
+    <div class="absolute inset-0 bg-black/50" data-menu-close></div>
+
+    <!-- panel -->
+    <div
+      class="absolute right-0 top-0 h-full w-[88%] max-w-sm bg-[#061A2A] p-6"
+    >
+      <div class="flex items-center justify-between">
+        <a
+          href={isEL ? "/el" : "/"}
+          class="text-[#F5B400] text-2xl font-semibold"
+        >
+          freighters
+        </a>
+
+        <button
+          class="inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
+          aria-label="Close menu"
+          data-menu-close
+        >
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 6l12 12M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="mt-10 space-y-6">
+        {
+          nav.map((item) => (
+            <li>
+              {item.disabled ? (
+                <span
+                  class="block cursor-not-allowed text-lg text-white/40"
+                  aria-disabled="true"
+                  title="Coming soon"
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <a
+                  href={item.href}
+                  class="block text-white/90 hover:text-white transition text-lg"
+                  data-menu-link
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-10">
+        <a
+          href={langHref}
+          class="inline-flex items-center gap-2 text-white/85 hover:text-white transition"
+        >
+          <span class="text-lg leading-none">{Flag}</span>
+          <span class="text-sm tracking-wide">{LangLabel}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- tiny JS (no framework) -->
+  <script is:inline>
+    const openBtn = document.querySelector("[data-menu-open]");
+    const overlay = document.querySelector("[data-menu-overlay]");
+    const closeEls = document.querySelectorAll("[data-menu-close]");
+    const links = document.querySelectorAll("[data-menu-link]");
+
+    function openMenu() {
+      overlay?.classList.remove("hidden");
+      document.documentElement.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      overlay?.classList.add("hidden");
+      document.documentElement.style.overflow = "";
+    }
+
+    openBtn?.addEventListener("click", openMenu);
+    closeEls?.forEach((el) => el.addEventListener("click", closeMenu));
+    links?.forEach((a) => a.addEventListener("click", closeMenu));
+
+    // escape to close
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
+</header>

@@ -1,0 +1,44 @@
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/500.css";
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #E4B200;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto max-w-6xl px-8;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .section-tight {
+    @apply py-12;
+  }
+
+  .kicker {
+    @apply text-[11px] font-semibold tracking-[0.2em] text-black/60;
+  }
+
+  .h2 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+
+  .font-body { @apply font-light; }     /* 300 */
+  .font-ui { @apply font-medium; }      /* 500 */
+}

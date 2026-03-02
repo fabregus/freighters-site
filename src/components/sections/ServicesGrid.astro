@@ -1,0 +1,52 @@
+---
+import ServiceCard from "../ServiceCard.astro";
+
+const {
+  title = "SERVICES",
+  items = [
+    {
+      title: "OCEAN FREIGHT",
+      desc: "Access our worldwide maritime expertise...",
+      image: "/images/services/ocean-freight.jpg",
+    },
+    {
+      title: "AIR FREIGHT",
+      desc: "When time matters, our global air freight services...",
+      image: "/images/services/air-freight.jpg",
+    },
+    {
+      title: "ROAD FREIGHT",
+      desc: "Whether last-mile or cross-border...",
+      image: "/images/services/road-freight.jpg",
+    },
+    {
+      title: "RAIL FREIGHT",
+      desc: "Our rail freight services offer an eco-friendly solution...",
+      image: "/images/services/rail-freight.jpg",
+    },
+    {
+      title: "TAILORED FREIGHT\nSOLUTIONS",
+      desc: "Enhance your supply chain with our value-added services...",
+      image: "/images/services/tailored-freight.jpg",
+    },
+  ],
+} = Astro.props;
+
+const topRow = items.slice(0, 3);
+const bottomRow = items.slice(3);
+---
+
+<section id="services" class="bg-white">
+  <div class="container-site py-20">
+    <div class="flex items-end justify-between gap-10">
+      <h2 class="text-[44px] font-light tracking-tight text-black">{title}</h2>
+    </div>
+
+    <div class="mt-12 grid gap-10">
+      <div class="grid gap-10 md:grid-cols-3">
+        {topRow.map((item) => <ServiceCard {...item} />)}
+        {bottomRow.map((item) => <ServiceCard {...item} />)}
+      </div>
+    </div>
+  </div>
+</section>

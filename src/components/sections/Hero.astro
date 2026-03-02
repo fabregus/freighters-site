@@ -1,0 +1,53 @@
+---
+const {
+  titleLeft = "Freighters.",
+  titleRight = "Moving Trade Forward",
+  videoSrc = "/video/home_hero.mp4",
+} = Astro.props;
+---
+
+<section class="relative">
+  <!-- Background -->
+  <section class="relative">
+    <!-- Full-bleed media -->
+    <div class="relative h-105 w-full overflow-hidden">
+      <video
+        class="h-full w-full object-cover contrast-[1.05] saturate-[0.9]"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+
+      <!-- overlays -->
+      <!-- blue / teal overlay -->
+      <div
+        class="absolute inset-0 bg-linear-to-b from-[#061A2A]/70 via-[#0b2d45]/40 to-transparent"
+      >
+      </div>
+
+      <!-- subtle color tint -->
+      <div class="absolute inset-0 bg-[#0a3a5a]/20 mix-blend-multiply"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.35)_100%)]"
+      >
+      </div>
+
+      <!-- Headline -->
+      <div class="pointer-events-none absolute inset-0 z-10 flex items-center">
+        <div class="container-site">
+          <h1 class="text-4xl font-light tracking-tight text-white md:text-5xl">
+            <span class="text-[#F5B400]">{titleLeft}</span>{" "}
+            <span class="text-white">{titleRight}</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header slot -->
+    <slot />
+  </section>
+</section>
