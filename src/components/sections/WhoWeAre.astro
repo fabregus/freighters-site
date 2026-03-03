@@ -1,13 +1,11 @@
 ---
-const title = "WHO WE ARE";
-
-const p1 =
-  "Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market.";
-
-const p2 =
-  "With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency.";
-
-const image = "/images/who-we-are.png";
+const {
+  title = "WHO WE ARE",
+  p1 = "Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market.",
+  p2 = "With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency.",
+  image = "/images/who-we-are.png",
+  imageAlt = "Freighters warehouse",
+} = Astro.props;
 ---
 
 <section id="about" class="bg-white">
@@ -36,7 +34,7 @@ const image = "/images/who-we-are.png";
           <div class="aspect-4/5 w-full overflow-hidden">
             <img
               src={image}
-              alt="Freighters warehouse"
+              alt={imageAlt}
               class="h-full w-full object-cover"
               loading="lazy"
             />

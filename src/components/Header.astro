@@ -1,22 +1,21 @@
 ---
-const isEL = Astro.url.pathname.startsWith("/el");
-const isContactPage =
-  Astro.url.pathname === "/contact" || Astro.url.pathname === "/el/contact";
+const pathname = Astro.url.pathname;
+const isEL = pathname.startsWith("/el");
+const localizedPath = isEL ? pathname.replace(/^\/el/, "") || "/" : pathname;
 const homeHref = isEL ? "/el" : "/";
+const aboutHref = isEL ? "/el/about" : "/about";
 const contactHref = isEL ? "/el/contact" : "/contact";
 const langHref = isEL
-  ? isContactPage
-    ? "/contact"
-    : "/"
-  : isContactPage
-    ? "/el/contact"
-    : "/el";
+  ? localizedPath
+  : localizedPath === "/"
+    ? "/el"
+    : `/el${localizedPath}`;
 
 const defaultNav = [
-  { href: homeHref, label: "Home" },
-  { href: "#", label: "Services", disabled: true },
-  { href: "/about", label: "About Us" },
-  { href: contactHref, label: "Contact" },
+  { href: homeHref, label: isEL ? "Αρχική" : "Home" },
+  { href: "#", label: isEL ? "Υπηρεσίες" : "Services", disabled: true },
+  { href: aboutHref, label: isEL ? "Σχετικά" : "About Us" },
+  { href: contactHref, label: isEL ? "Επικοινωνία" : "Contact" },
 ];
 const { nav = defaultNav } = Astro.props;
 
@@ -67,7 +66,7 @@ const Flag = isEL ? "🇬🇧" : "🇬🇷"; // showing the target language flag
         <a
           href={langHref}
           class="hidden items-center gap-2 text-white/85 hover:text-white transition md:flex"
-          aria-label="Switch language"
+          aria-label={isEL ? "Αλλαγή γλώσσας" : "Switch language"}
         >
           <span class="text-lg leading-none">{Flag}</span>
           <span class="text-sm tracking-wide">{LangLabel}</span>
@@ -76,7 +75,7 @@ const Flag = isEL ? "🇬🇧" : "🇬🇷"; // showing the target language flag
         <!-- mobile menu button -->
         <button
           class="md:hidden inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
-          aria-label="Open menu"
+          aria-label={isEL ? "Άνοιγμα μενού" : "Open menu"}
           data-menu-open
         >
           <svg
@@ -115,7 +114,7 @@ const Flag = isEL ? "🇬🇧" : "🇬🇷"; // showing the target language flag
 
         <button
           class="inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
-          aria-label="Close menu"
+          aria-label={isEL ? "Κλείσιμο μενού" : "Close menu"}
           data-menu-close
         >
           <svg

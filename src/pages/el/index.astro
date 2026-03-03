@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Intro from "../../components/sections/Intro.astro";
+import WhoWeAre from "../../components/sections/WhoWeAre.astro";
+import BigStatement from "../../components/sections/BigStatement.astro";
+import ValuesSliderGSAP from "../../components/sections/ValuesSliderGSAP.astro";
+import Services from "../../components/sections/ServicesGrid.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout lang="el" title="Αρχική | Freighters">
+  <Header />
+  <Hero
+    titleLeft="Freighters."
+    titleRight="Προωθούμε το Εμπόριο Μπροστά"
+  />
+  <Intro
+    titleTop="ΤΟ ΕΜΠΟΡΙΟ ΣΑΣ."
+    titleBottom="Η ΔΙΚΗ ΜΑΣ ΕΥΘΥΝΗ."
+    p1="Στη Freighters, συνδυάζουμε προηγμένο σχεδιασμό logistics με ένα ισχυρό διεθνές δίκτυο, ώστε να προσφέρουμε αξιόπιστες λύσεις μεταφοράς φορτίων πέρα από σύνορα."
+    p2="Κάθε αποστολή διαχειρίζεται με προσοχή, διαφάνεια και ταχύτητα."
+  />
+  <WhoWeAre
+    title="ΠΟΙΟΙ ΕΙΜΑΣΤΕ"
+    p1="Η Freighters είναι μια σύγχρονη εμπορική και logistics εταιρεία, σχεδιασμένη να υποστηρίζει επιχειρήσεις σε μια ταχύτατα μεταβαλλόμενη παγκόσμια αγορά."
+    p2="Με βαθιά γνώση του κλάδου και δίκτυο αξιόπιστων συνεργατών, προσφέρουμε ευφυείς λύσεις μεταφοράς που συνδυάζουν αξιοπιστία, ευελιξία και διαφάνεια."
+    imageAlt="Αποθήκη της Freighters"
+  />
+  <BigStatement text="Στη Freighters, ξεπερνάμε τη μεταφορά." />
+  <ValuesSliderGSAP
+    title="ΑΞΙΕΣ"
+    slides={[
+      {
+        n: "1",
+        title: "ΑΞΙΟΠΙΣΤΙΑ",
+        body:
+          "Εξασφαλίζουμε ότι κάθε αποστολή φτάνει με ασφάλεια,\nστην ώρα της, με σταθερή ποιότητα υπηρεσίας που μπορείτε να εμπιστεύεστε.",
+        bg: "#061A2A",
+      },
+      {
+        n: "2",
+        title: "ΕΞΥΠΝΕΣ\nΛΥΣΕΙΣ",
+        body:
+          "Σχεδιάζουμε αποδοτικές στρατηγικές logistics που μειώνουν\nτο κόστος, αυξάνουν την ταχύτητα και απλοποιούν το διεθνές εμπόριο.",
+        bg: "#F5B400",
+      },
+      {
+        n: "3",
+        title: "ΣΥΝΕΡΓΑΣΙΑ",
+        body:
+          "Συνεργαζόμαστε στενά με τους πελάτες, κατανοώντας τους στόχους τους,\nώστε να πετυχαίνουμε μαζί μακροπρόθεσμη επιτυχία στα logistics.",
+        bg: "#2E6671",
+      },
+    ]}
+  />
+  <Services
+    title="ΥΠΗΡΕΣΙΕΣ"
+    items={[
+      {
+        title: "ΘΑΛΑΣΣΙΕΣ\nΜΕΤΑΦΟΡΕΣ",
+        desc: "Αξιοποιήστε την παγκόσμια ναυτιλιακή μας τεχνογνωσία για αποστολές με συνέπεια και ευελιξία.",
+        image: "/images/services/ocean-freight.jpg",
+        href: "/el/contact",
+      },
+      {
+        title: "ΑΕΡΟΠΟΡΙΚΕΣ\nΜΕΤΑΦΟΡΕΣ",
+        desc: "Όταν ο χρόνος είναι κρίσιμος, οι διεθνείς αεροπορικές μας λύσεις κρατούν την εφοδιαστική σας αλυσίδα σε κίνηση.",
+        image: "/images/services/air-freight.jpg",
+        href: "/el/contact",
+      },
+      {
+        title: "ΟΔΙΚΕΣ\nΜΕΤΑΦΟΡΕΣ",
+        desc: "Από last-mile παραδόσεις έως διασυνοριακές μεταφορές, προσφέρουμε σταθερή κάλυψη σε κάθε διαδρομή.",
+        image: "/images/services/road-freight.jpg",
+        href: "/el/contact",
+      },
+      {
+        title: "ΣΙΔΗΡΟΔΡΟΜΙΚΕΣ\nΜΕΤΑΦΟΡΕΣ",
+        desc: "Οι σιδηροδρομικές υπηρεσίες μας προσφέρουν αποδοτική και πιο βιώσιμη επιλογή για σύνθετες ροές φορτίου.",
+        image: "/images/services/rail-freight.jpg",
+        href: "/el/contact",
+      },
+      {
+        title: "ΕΞΑΤΟΜΙΚΕΥΜΕΝΕΣ\nΛΥΣΕΙΣ",
+        desc: "Ενισχύστε την εφοδιαστική σας αλυσίδα με προσαρμοσμένες υπηρεσίες που ανταποκρίνονται στις πραγματικές σας ανάγκες.",
+        image: "/images/services/tailored-freight.jpg",
+        href: "/el/contact",
+      },
+    ]}
+  />
+  <Footer />
+</Layout>

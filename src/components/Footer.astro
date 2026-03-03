@@ -11,6 +11,19 @@ const socials = {
   youtube: "#",
   linkedin: "#",
 };
+
+const isEL = Astro.url.pathname.startsWith("/el");
+const labels = isEL
+  ? {
+      call: "Καλέστε μας",
+      email: "Στείλτε μας email",
+      social: "Ακολουθήστε μας",
+    }
+  : {
+      call: "Call us",
+      email: "Email us",
+      social: "Get Social",
+    };
 ---
 
 <footer class="relative overflow-hidden bg-[#061A2A] text-white">
@@ -19,7 +32,7 @@ const socials = {
       <!-- Left column -->
       <div class="space-y-10">
         <div>
-          <p class="text-sm text-white/70">Call us</p>
+          <p class="text-sm text-white/70">{labels.call}</p>
           <a
             href={`tel:${phone.replace(/\s+/g, "")}`}
             class="mt-1 inline-block text-lg text-white/95 hover:text-white transition"
@@ -29,7 +42,7 @@ const socials = {
         </div>
 
         <div>
-          <p class="text-sm text-white/70">Email us</p>
+          <p class="text-sm text-white/70">{labels.email}</p>
           <a
             href={`mailto:${email}`}
             class="mt-1 inline-block text-lg text-white/95 hover:text-white transition"
@@ -39,7 +52,7 @@ const socials = {
         </div>
 
         <div>
-          <p class="mb-4 text-sm text-white/70">Get Social</p>
+          <p class="mb-4 text-sm text-white/70">{labels.social}</p>
 
           <div class="flex items-center gap-8">
             <!-- Instagram -->

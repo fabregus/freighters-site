@@ -1,0 +1,104 @@
+---
+type Props = {
+  image: string;
+  title?: string;
+  buttonText?: string;
+  buttonLink?: string;
+};
+
+const {
+  image,
+  title = "SECURE A FREIGHT FORWARDING SOLUTION THAT FITS YOUR NEEDS PERFECTLY.",
+  buttonText = "Contact Us",
+  buttonLink = Astro.url.pathname.startsWith("/el") ? "/el/contact" : "/contact",
+} = Astro.props;
+---
+
+<section class="relative w-full h-[75vh] min-h-130 overflow-hidden">
+  <!-- Background -->
+  <img
+    src={image}
+    alt="Freight solution"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/35"></div>
+
+  <!-- Content (NOT inside max-w container) -->
+  <div class="relative z-10 h-full flex items-center">
+    <div
+      class="pl-6
+        sm:pl-12
+        lg:pl-20
+        xl:pl-32
+        max-w-2xl
+        text-white"
+      data-reveal
+    >
+      <h2
+        class="text-2xl
+        font-light
+        uppercase
+        tracking-tighter
+        leading-relaxed
+        mb-12"
+      >
+        {title}
+      </h2>
+
+      <a
+        href={buttonLink}
+        class="inline-block
+          bg-yellow-500
+          hover:bg-yellow-600
+          transition-all
+          duration-300
+          text-white
+          px-12
+          py-5
+          rounded-full
+          text-lg
+          font-medium
+          hover:scale-[1.03]"
+      >
+        {buttonText}
+      </a>
+    </div>
+  </div>
+
+  <!-- Reveal Animation -->
+  <style>
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(25px);
+      transition:
+        opacity 900ms ease,
+        transform 900ms ease;
+    }
+
+    [data-reveal].is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    const el = document.querySelector("[data-reveal]");
+    if (el) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      observer.observe(el);
+    }
+  </script>
+</section>
