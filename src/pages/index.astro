@@ -3,10 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/sections/Hero.astro";
 import Intro from "../components/sections/Intro.astro";
-import WhoWeAre from "../components/sections/WhoWeAre.astro";
 import BigStatement from "../components/sections/BigStatement.astro";
-import ValuesSliderGSAP from "../components/sections/ValuesSliderGSAP.astro";
-import Services from "../components/sections/ServicesGrid.astro";
+import Bluegame from "../components/sections/Bluegame.astro";
+import IndustriesSliderGSAP from "../components/sections/IndustriesSliderGSAP.astro";
+import Solutions from "../components/sections/SolutionsGrid.astro";
+import ContactDetails from "../components/sections/ContactDetails.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -14,17 +15,16 @@ import Footer from "../components/Footer.astro";
   <Header lang="en" currentPath="/" />
   <Hero />
   <Intro
-    titleTop="YOUR TRADE."
-    titleBottom="OUR RESPONSIBILITY."
-    p1="At Freighters, we combine advanced logistics planning with a strong international network to deliver reliable freight solutions across borders."
-    p2="Every shipment is handled with care, transparency, and speed."
-  />
-  <WhoWeAre
-    p1="Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market."
-    p2="With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency."
+    titleTop="WHO WE ARE"
+    paragraphs={[
+      "Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market. With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency.",
+      "At Freighters, we combine advanced logistics planning with a strong international network to deliver reliable freight solutions across borders. Every shipment is handled with care, transparency, and speed.",
+    ]}
   />
   <BigStatement text="At Freighters, we go beyond transportation." />
-  <ValuesSliderGSAP />
-  <Services />
+  <Bluegame />
+  <IndustriesSliderGSAP />
+  <Solutions />
+  <ContactDetails />
   <Footer />
 </Layout>

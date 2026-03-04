@@ -1,9 +1,10 @@
 ---
 const defaultNav = [
-  { href: "/", label: "Home" },
-  { href: "#", label: "Services", disabled: true },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
+  { href: "#who-we-are", label: "Who We Are" },
+  { href: "#bluegame", label: "Bluegame" },
+  { href: "#industries", label: "Industries" },
+  { href: "#solutions", label: "Solutions" },
+  { href: "#contact", label: "Contact" },
 ];
 const { nav = defaultNav } = Astro.props;
 ---
@@ -12,10 +13,7 @@ const { nav = defaultNav } = Astro.props;
   <div class="container-site">
     <nav class="relative flex h-20 items-center">
       <!-- left: logo -->
-      <a
-        href="/"
-        class="shrink-0 text-[#F5B400] text-2xl font-semibold"
-      >
+      <a href="/" class="shrink-0 text-[#F5B400] text-2xl font-semibold">
         freighters
       </a>
 
@@ -24,22 +22,12 @@ const { nav = defaultNav } = Astro.props;
         {
           nav.map((item) => (
             <li>
-              {item.disabled ? (
-                <span
-                  class="cursor-not-allowed text-sm tracking-wide text-white/40"
-                  aria-disabled="true"
-                  title="Coming soon"
-                >
-                  {item.label}
-                </span>
-              ) : (
-                <a
-                  href={item.href}
-                  class="text-sm tracking-wide hover:text-white transition"
-                >
-                  {item.label}
-                </a>
-              )}
+              <a
+                href={item.href}
+                class="text-sm tracking-wide hover:text-white transition"
+              >
+                {item.label}
+              </a>
             </li>
           ))
         }
@@ -79,10 +67,7 @@ const { nav = defaultNav } = Astro.props;
       class="absolute right-0 top-0 h-full w-[88%] max-w-sm bg-[#061A2A] p-6"
     >
       <div class="flex items-center justify-between">
-        <a
-          href="/"
-          class="text-[#F5B400] text-2xl font-semibold"
-        >
+        <a href="/" class="text-[#F5B400] text-2xl font-semibold">
           freighters
         </a>
 
@@ -110,28 +95,17 @@ const { nav = defaultNav } = Astro.props;
         {
           nav.map((item) => (
             <li>
-              {item.disabled ? (
-                <span
-                  class="block cursor-not-allowed text-lg text-white/40"
-                  aria-disabled="true"
-                  title="Coming soon"
-                >
-                  {item.label}
-                </span>
-              ) : (
-                <a
-                  href={item.href}
-                  class="block text-white/90 hover:text-white transition text-lg"
-                  data-menu-link
-                >
-                  {item.label}
-                </a>
-              )}
+              <a
+                href={item.href}
+                class="block text-white/90 hover:text-white transition text-lg"
+                data-menu-link
+              >
+                {item.label}
+              </a>
             </li>
           ))
         }
       </ul>
-
     </div>
   </div>
 

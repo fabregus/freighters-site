@@ -1,0 +1,214 @@
+---
+const {
+  title = "INDUSTRIES",
+  slides = [
+    {
+      n: "1",
+      title: "AVIATION",
+      subtitle: "Airport-Driven, Time-Critical Precision",
+      intro: {
+        label: "Airport-Grade Execution",
+        text: "Every movement is handled with the discipline, speed, and accuracy of a ground-handling team.",
+      },
+      points: [
+        {
+          label: "Real-Time Planning",
+          text: "Bluegame platform delivers full shipment visibility, ETA management, and control-tower monitoring.",
+        },
+        {
+          label: "24/7 Operational Control",
+          text: "Immediate response for time-critical aviation cargo, including AOG and hand carry.",
+        },
+      ],
+      architectureTitle:
+        "Structured Service Architecture - From routine to charter, every urgency level is covered:",
+      architecture: [
+        {
+          label: "Routine",
+          text: "Scheduled air and sea, consolidations, standard road transport.",
+        },
+        {
+          label: "Critical",
+          text: "Priority acceptance, fastest routing, dedicated monitoring.",
+        },
+        {
+          label: "AOG",
+          text: "24/7 desk, direct airline coordination, fastest uplift.",
+        },
+        {
+          label: "Hand Carry",
+          text: "Personal escort, full chain-of-custody, immediate booking.",
+        },
+        {
+          label: "Plane Charter",
+          text: "Full/part charter, helicopter sprint, end-to-end coordination.",
+        },
+      ],
+      bg: "#061A2A",
+    },
+    {
+      n: "2",
+      title: "HOSPITALITY",
+      subtitle: "Hotel Ready, Seamless Operational Flow",
+      intro: {
+        label: "Hospitality-Grade Execution",
+        text: "End-to-end logistics engineered for hotel openings, refurbishments, and ongoing operations.",
+      },
+      points: [
+        {
+          label: "Full FF&E / OS&E Management",
+          text: "Coordinated sourcing, receiving, quality control, storage, and room-by-room delivery.",
+        },
+        {
+          label: "White-Glove Handling",
+          text: "Controlled movement, fixtures, linens, amenities, and high-value items with zero-damage standards.",
+        },
+        {
+          label: "Real-Time Planning",
+          text: "Bluegame platform provides full visibility across inbound flows, warehouse / delivery status and ETA management.",
+        },
+        {
+          label: "Installation Coordination",
+          text: "Direct alignment with contractors, procurement teams, and hotel management for smooth installation.",
+        },
+      ],
+      architectureTitle:
+        "Service Architecture - Designed for every stage of the hospitality lifecycle:",
+      architecture: [
+        {
+          label: "Pre-Opening",
+          text: "Consolidation, inventory control, sequencing, and phased delivery.",
+        },
+        {
+          label: "Refurbishment",
+          text: "Controlled removal, temporary storage, and synchronized re-installation.",
+        },
+        {
+          label: "Operational Supply",
+          text: "Continuous replenishment of linens, amenities, consumables, and seasonal items.",
+        },
+        {
+          label: "Special Projects",
+          text: "Artwork, decor, high-value pieces, and custom installations.",
+        },
+      ],
+      bg: "#F5B400",
+    },
+    {
+      n: "3",
+      title: "MARITIME",
+      subtitle: "Vessel-Ready, Time-Critical Flow",
+      intro: {
+        label: "Maritime Logistics",
+        text: "Operates as a fast, controlled, vessel-centric service designed to keep ships operational.",
+      },
+      points: [
+        {
+          label: "Time-Critical Delivery",
+          text: "Fast movement of engine-room and operational spares to vessels at berth or anchorage.",
+        },
+        {
+          label: "End-to-End Coordination",
+          text: "Supplier pickup, consolidation, customs flow, and alignment with agents and port authorities.",
+        },
+        {
+          label: "Controlled Chain-of-Custody",
+          text: "Verified handovers, sealed packaging, and documented delivery.",
+        },
+        {
+          label: "Marine-Class Handling",
+          text: "Certified standards for hazardous, oversized, sensitive, or high-value components.",
+        },
+        {
+          label: "Real-Time Visibility",
+          text: "Bluegame platform tracking, ETA management, and auto-notifications across the entire flow.",
+        },
+        {
+          label: "Built for Vessel Readiness",
+          text: "Every decision optimized to meet the vessel's operational window.",
+        },
+      ],
+      bg: "#2E6671",
+    },
+  ],
+} = Astro.props;
+---
+
+<section id="industries" class="bg-white">
+  <div class="container-site py-10">
+    <h2 class="text-[40px] font-light text-black">{title}</h2>
+  </div>
+
+  <!-- Wrapper: παίρνει ύψος N*100vh από το script -->
+  <div id="industries-wrap">
+    <!-- Pinned viewport -->
+    <div id="industries-pin" class="relative h-screen overflow-hidden">
+      <div class="relative h-full w-full">
+        {slides.map((s, i) => (
+          <article
+            class="industries-panel absolute inset-0 h-full w-full"
+            style={`background:${s.bg}; transform: translateY(${i * 100}%);`}
+          >
+            <!-- huge number -->
+            <div class="absolute left-10 top-10 text-[140px] leading-none font-light text-white/95">
+              {s.n}
+            </div>
+
+            <div class="absolute right-10 top-10 text-right text-white">
+              <div class="whitespace-pre-line text-[42px] leading-[0.95] font-light tracking-[0.06em]">
+                {s.title}
+              </div>
+            </div>
+
+            <div class="absolute inset-x-0 bottom-10 top-32 px-6 md:px-10">
+              <div class="mx-auto h-full max-w-5xl overflow-y-auto p-2 md:p-4">
+                <p class="text-[20px] font-semibold text-white md:text-[24px]">
+                  {s.subtitle}
+                </p>
+
+                <ul class="mt-5 list-none space-y-4 pl-6">
+                  <li class="text-[16px] leading-tight text-white/90 md:text-[18px] lg:text-[20px]">
+                    <span class="font-semibold text-white">{s.intro.label} - </span>
+                    <span>{s.intro.text}</span>
+                  </li>
+
+                  {s.points.map((point) => (
+                    <li class="text-[16px] leading-tight text-white/90 md:text-[18px] lg:text-[20px]">
+                      <span class="font-semibold text-white">{point.label} - </span>
+                      <span>{point.text}</span>
+                    </li>
+                  ))}
+
+                  {
+                    s.architectureTitle && (
+                      <li class="text-[16px] leading-tight text-white/90 md:text-[18px] lg:text-[20px]">
+                        <span class="font-semibold text-white">
+                          {s.architectureTitle}
+                        </span>
+                        <ul class="mt-3 list-none space-y-3 pl-6">
+                          {s.architecture?.map((item) => (
+                            <li class="text-[16px] leading-tight text-white/90 md:text-[18px] lg:text-[20px]">
+                              <span class="font-semibold text-white">
+                                {item.label} -{" "}
+                              </span>
+                              <span>{item.text}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    )
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Astro-bundled script (Vite bundling) -->
+  <script>
+    import "../../scripts/industries-gsap.js";
+  </script>
+</section>

@@ -1,18 +1,17 @@
 ---
 const {
   title = "WHO WE ARE",
-  p1 = "Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market.",
-  p2 = "With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency.",
+  text = "At Freighters, we combine advanced logistics planning with a strong international network to deliver reliable freight solutions across borders. Every shipment is handled with care, transparency, and speed.",
+  paragraphs,
   image = "/images/who-we-are.png",
   imageAlt = "Freighters warehouse",
 } = Astro.props;
+
+const contentParagraphs = paragraphs ?? [text];
 ---
 
-<section id="about" class="bg-white">
+<section id="about" class="bg-white font-medium">
   <div class="container-site relative py-24">
-    <!-- TOP YELLOW LINE -->
-    <div class="absolute top-0 left-0 h-1.5 w-2/5 bg-primary"></div>
-
     <div class="grid items-center gap-16 lg:grid-cols-12">
       <!-- TEXT COLUMN -->
       <div class="lg:col-span-6">
@@ -22,8 +21,7 @@ const {
           </h2>
 
           <div class="mt-12 space-y-10 text-[15px] leading-7 text-black/60">
-            <p>{p1}</p>
-            <p>{p2}</p>
+            {contentParagraphs.map((paragraph) => <p>{paragraph}</p>)}
           </div>
         </div>
       </div>
@@ -31,7 +29,7 @@ const {
       <!-- IMAGE COLUMN -->
       <div class="lg:col-span-6">
         <div class="ml-auto max-w-160">
-          <div class="aspect-4/5 w-full overflow-hidden">
+          <div class="aspect-square w-full overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
@@ -43,7 +41,5 @@ const {
       </div>
     </div>
 
-    <!-- BOTTOM YELLOW LINE -->
-    <div class="absolute bottom-0 right-0 h-1.5 w-1/3 bg-primary"></div>
   </div>
 </section>

@@ -1,0 +1,73 @@
+---
+const image = "/images/Bluegame.png";
+
+const items = [
+  {
+    title: "Control Tower",
+    description:
+      "A single planning environment connecting orders, shipments and operational flows.",
+  },
+  {
+    title: "Real-Time Visibility",
+    description: "Live status and auto notifications across every movement.",
+  },
+  {
+    title: "Flow-Based Planning",
+    description:
+      "Dynamic routing and prioritization based on urgency, capacity, and operational constraints.",
+  },
+  {
+    title: "Full Data Continuity",
+    description:
+      "One source of information across logistics, warehouse, port, and airport operations.",
+  },
+  {
+    title: "AI Decision Support",
+    description:
+      "Auto-suggestions that reduce delays, improve accuracy, and stabilize execution.",
+  },
+  {
+    title: "High-Intensity Operations",
+    description:
+      "Designed to support aviation, hospitality, and maritime logistics with the same precision.",
+  },
+];
+---
+
+<section class="bg-white" id="bluegame">
+  <div class="container-site py-24">
+    <div class="w-full overflow-hidden">
+      <img
+        src={image}
+        alt="Bluegame platform"
+        class="object-cover w-60 mx-auto"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="mx-auto mt-14 max-w-5xl text-center">
+      <h2
+        class="text-[34px] font-light tracking-tight text-black md:text-[46px]"
+      >
+        Bluegame Platform - Real-Time, End-to-End Planning
+      </h2>
+    </div>
+
+    <div
+      class="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        items.map((item) => (
+          <article class="rounded-2xl border border-[#0b2d45]/15 bg-[#f7fafc] p-6">
+            <h3 class="text-[20px] leading-tight font-semibold text-[#0b2d45]">
+              {item.title}
+            </h3>
+            <p class="mt-4 text-[16px] leading-7 text-black/75">
+              {item.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

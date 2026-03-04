@@ -1,22 +1,22 @@
 ---
-const { titleTop, titleBottom, p1, p2 } = Astro.props;
+const { titleTop, titleBottom, paragraphs = [] } = Astro.props;
 ---
 
-<section class="relative bg-white tracking-wider">
+<section id="who-we-are" class="relative bg-white tracking-wider">
   <div class="container-site py-24">
     <div class="mx-auto max-w-170 text-center">
       <h2 class="text-[32px] leading-[1.15] text-black font-medium">
         <span class="block">{titleTop}</span>
-        <span class="block">{titleBottom}</span>
+        {titleBottom && <span class="block">{titleBottom}</span>}
       </h2>
 
-      <p class="mx-auto mt-10 text-lg leading-7 text-black/80 font-medium">
-        {p1}
-      </p>
-
-      <p class="mx-auto mt-10 text-lg leading-7 text-black/80 font-medium">
-        {p2}
-      </p>
+      {
+        paragraphs.map((paragraph) => (
+          <p class="mx-auto mt-10 text-lg leading-7 text-black/80 font-medium">
+            {paragraph}
+          </p>
+        ))
+      }
     </div>
   </div>
 </section>
