@@ -2,7 +2,7 @@
   type="button"
   aria-label="Back to top"
   data-back-to-top
-  class="fixed bottom-6 right-6 z-[9998] hidden h-12 w-12 items-center justify-center rounded-full bg-[#F5B400] text-[#061A2A] shadow-lg transition hover:scale-105 hover:bg-[#e4aa00] md:bottom-8 md:right-8"
+  class="fixed bottom-6 right-6 z-9998 hidden h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[#F5B400] text-[#061A2A] shadow-lg transition hover:scale-105 hover:bg-[#e4aa00] md:bottom-8 md:right-8"
 >
   <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path
@@ -29,7 +29,10 @@
       const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
     });
 
     window.addEventListener("scroll", toggle, { passive: true });
