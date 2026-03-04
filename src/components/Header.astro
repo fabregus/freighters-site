@@ -115,6 +115,7 @@ const { nav = defaultNav } = Astro.props;
     const overlay = document.querySelector("[data-menu-overlay]");
     const closeEls = document.querySelectorAll("[data-menu-close]");
     const links = document.querySelectorAll("[data-menu-link]");
+    const anchorLinks = document.querySelectorAll('header a[href^="#"]');
 
     function openMenu() {
       overlay?.classList.remove("hidden");
@@ -129,6 +130,31 @@ const { nav = defaultNav } = Astro.props;
     openBtn?.addEventListener("click", openMenu);
     closeEls?.forEach((el) => el.addEventListener("click", closeMenu));
     links?.forEach((a) => a.addEventListener("click", closeMenu));
+
+    anchorLinks?.forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        if (!href || href === "#") return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const header = document.querySelector("header");
+        const offset = header ? header.getBoundingClientRect().height + 12 : 88;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+        history.replaceState(null, "", href);
+      });
+    });
 
     // escape to close
     window.addEventListener("keydown", (e) => {

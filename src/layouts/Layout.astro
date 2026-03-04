@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import BackToTop from "../components/BackToTop.astro";
 const { lang = "en", title = "Freighters" } = Astro.props;
 ---
 
@@ -21,6 +22,7 @@ const { lang = "en", title = "Freighters" } = Astro.props;
   </head>
   <body>
     <slot />
+    <BackToTop />
   </body>
 </html>
 

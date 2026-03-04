@@ -1,13 +1,13 @@
 ---
 type Props = {
-  image: string;
+  image?: string;
   title?: string;
   buttonText?: string;
   buttonLink?: string;
 };
 
 const {
-  image,
+  image = "/images/contact-cta.jpg",
   title = "SECURE A FREIGHT FORWARDING SOLUTION THAT FITS YOUR NEEDS PERFECTLY.",
   buttonText = "Contact Us",
   buttonLink = "/contact",

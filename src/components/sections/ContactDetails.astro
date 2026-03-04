@@ -1,8 +1,5 @@
 ---
-const {
-  title = "CONTACT US",
-  subtitle = "GET IN TOUCH.",
-} = Astro.props;
+const { title = "CONTACT US", subtitle = "GET IN TOUCH." } = Astro.props;
 
 const email = "ops@freighters.gr";
 const phone = "210 4444856";
@@ -10,17 +7,17 @@ const addressLines = [
   "El. Venizelos Airport",
   "Spata, Bldg. 27, 2nd Floor - Off. 420",
 ];
-const mapsLink =
-  "https://www.google.com/maps/search/?api=1&query=El.+Venizelos+Airport%2C+Spata%2C+Bldg.+27%2C+2nd+Floor+-+Off.+420";
 ---
 
 <section id="contact" class="bg-white">
-  <div class="container-site py-20">
-    <h2 class="text-[28px] tracking-[0.18em] text-black">{title}</h2>
+  <div class="container-site pb-16">
+    <h2 class="mt-14 text-[28px] tracking-[0.18em] text-black">{title}</h2>
 
-    <div class="mt-24 grid gap-16 lg:grid-cols-2 lg:items-start">
+    <div class="mt-10 grid gap-16 lg:grid-cols-2 lg:items-start">
       <div>
-        <h3 class="text-[44px] font-light tracking-tight text-black">{subtitle}</h3>
+        <h3 class="text-[44px] font-light tracking-tight text-black">
+          {subtitle}
+        </h3>
       </div>
 
       <div class="space-y-10 border border-black/10 p-8 md:p-10">
@@ -49,16 +46,7 @@ const mapsLink =
           <div class="mt-3 space-y-1 text-black/80">
             {
               addressLines.map((line) => (
-                <p class="text-base">
-                  <a
-                    href={mapsLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:text-black transition"
-                  >
-                    {line}
-                  </a>
-                </p>
+                <p class="text-base">{line}</p>
               ))
             }
           </div>
