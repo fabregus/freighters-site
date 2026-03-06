@@ -6,7 +6,6 @@ import Intro from "../components/sections/Intro.astro";
 import BigStatement from "../components/sections/BigStatement.astro";
 import Bluegame from "../components/sections/Bluegame.astro";
 import CtaHero from "../components/sections/CtaHero.astro";
-import IndustriesSliderGSAP from "../components/sections/IndustriesSliderGSAP.astro";
 import Solutions from "../components/sections/SolutionsGrid.astro";
 import WhyUs from "../components/sections/WhyUs.astro";
 import ContactDetails from "../components/sections/ContactDetails.astro";
@@ -17,16 +16,22 @@ import Footer from "../components/Footer.astro";
   <Header lang="en" currentPath="/" />
   <Hero />
   <Intro
+    padding="pt-24"
+    titleTop="YOUR CARGO. OUR RESPONSIBILITY."
+    paragraphs={[
+      "Freighters delivers reliable, cross‑border logistics through advanced planning and a strong international network.  Every movement is handled with care, transparency, and speed, ensuring stability across all operational windows and full confidence in the flow. Global capabilities include import and export handling, customs coordination, and end‑to‑end visibility across major trade lanes.",
+    ]}
+  />
+  <Intro
+    padding="pt-12 pb-24"
     titleTop="WHO WE ARE"
     paragraphs={[
-      "Freighters is a modern trading and logistics company built to support businesses in a fast-moving global market. With deep industry knowledge and a network of trusted partners, we provide smart freight solutions that combine reliability, flexibility, and transparency.",
-      "At Freighters, we combine advanced logistics planning with a strong international network to deliver reliable freight solutions across borders. Every shipment is handled with care, transparency, and speed.",
+      "Strategically located within the Athens International Airport and Powered by Bluegame technologies, we operate a modern, globally capable logistics system built for a fast‑moving market. Deep industry knowledge and a trusted partner ecosystem enable smart, flexible, and transparent freight solutions that support businesses end‑to‑end — from import and export handling to final delivery.",
     ]}
   />
   <BigStatement text="At Freighters, we go beyond transportation." />
   <Bluegame />
   <CtaHero />
-  <IndustriesSliderGSAP />
   <Solutions />
   <WhyUs />
   <ContactDetails />
