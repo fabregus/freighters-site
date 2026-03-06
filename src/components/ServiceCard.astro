@@ -1,12 +1,9 @@
 ---
 const fallbackImage = "/images/services/ocean-freight.jpg";
-const { title, desc, image = fallbackImage, href = "/contact" } = Astro.props;
+const { title, desc, image = fallbackImage } = Astro.props;
 ---
 
-<a
-  href={href}
-  class="group relative block overflow-hidden border border-black/10 bg-white"
->
+<article class="group relative block overflow-hidden border border-black/10 bg-white">
   <!-- Media -->
   <div class="relative aspect-[3/4] w-full overflow-hidden">
     <img
@@ -54,4 +51,4 @@ const { title, desc, image = fallbackImage, href = "/contact" } = Astro.props;
       </div>
     </div>
   </div>
-</a>
+</article>
