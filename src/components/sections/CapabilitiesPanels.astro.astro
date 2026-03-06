@@ -1,0 +1,164 @@
+---
+const sections = [
+  {
+    title: "MARITIME",
+    subtitle: "VESSEL-READY, TIME-CRITICAL FLOW",
+    bg: "#3B7480",
+    text: "#F5F4EF",
+    accent: "#F5F4EF",
+    items: [
+      {
+        label: "Time-Critical Delivery",
+        content: "Fast, coordinated cargo movement built around vessel timelines.",
+      },
+      {
+        label: "End-to-End Coordination",
+        content: "Single-flow coordination from origin handling to final delivery.",
+      },
+      {
+        label: "Controlled Chain-of-Custody",
+        content: "Clear operational control with traceable handover across every step.",
+      },
+      {
+        label: "Marine-Class Handling",
+        content: "Specialized handling standards aligned with maritime logistics needs.",
+      },
+      {
+        label: "Real-Time Visibility",
+        content: "Live updates and operational transparency during every shipment stage.",
+      },
+      {
+        label: "Vessel-Ready Operations",
+        content: "Execution designed around port schedules, cut-offs, and vessel readiness.",
+      },
+    ],
+  },
+  {
+    title: "AVIATION",
+    subtitle: "AIRPORT-DRIVEN, TIME-CRITICAL PRECISION",
+    bg: "#041F38",
+    text: "#F5F4EF",
+    accent: "#E4B200",
+    items: [
+      {
+        label: "Airport-Grade Execution",
+        content: "Operational flow optimized for airport environments and timing pressure.",
+      },
+      {
+        label: "Real-Time Planning",
+        content: "Dynamic coordination that adapts quickly to flight and cargo changes.",
+      },
+      {
+        label: "24/7 Operational Control",
+        content: "Continuous oversight for urgent cargo and time-sensitive movements.",
+      },
+      {
+        label: "Service Architecture",
+        content: "Structured workflows tailored to complex air-freight requirements.",
+      },
+    ],
+  },
+  {
+    title: "HOSPITALITY",
+    subtitle: "HOTEL-READY OPERATIONAL FLOW",
+    bg: "#E4B200",
+    text: "#F5F4EF",
+    accent: "#F5F4EF",
+    items: [
+      {
+        label: "Hospitality-Grade Execution",
+        content: "Delivery and handling aligned with hotel and project opening standards.",
+      },
+      {
+        label: "FF&E / OS&E Management",
+        content: "Coordinated movement of furnishings, equipment, and operational supplies.",
+      },
+      {
+        label: "White-Glove Handling",
+        content: "Careful delivery standards for high-value and presentation-critical items.",
+      },
+      {
+        label: "Real-Time Planning",
+        content: "Live coordination to support changing site and operational requirements.",
+      },
+      {
+        label: "Installation Coordination",
+        content: "Logistics aligned with installation sequencing and site readiness.",
+      },
+      {
+        label: "Service Architecture",
+        content: "End-to-end service design built around hospitality project delivery.",
+      },
+    ],
+  },
+];
+---
+
+<section class="bg-white">
+  <div class="space-y-0">
+    {sections.map((section) => (
+      <section
+        class="w-full"
+        style={`background:${section.bg}; color:${section.text};`}
+      >
+        <div class="container-site py-16 lg:py-20">
+          <div class="grid gap-12 lg:grid-cols-12 lg:items-start">
+            <!-- LEFT: dropdown list -->
+            <div class="lg:col-span-4">
+              <div class="space-y-5">
+                {section.items.map((item) => (
+                  <details class="group border-b border-white/55 pb-5">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-1">
+                      <span class="text-[18px] font-medium leading-6 tracking-tight">
+                        {item.label}
+                      </span>
+
+                      <span
+                        class="shrink-0 transition-transform duration-300 group-open:rotate-180"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          class="h-6 w-6"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M6 9L12 15L18 9"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </summary>
+
+                    <p class="pr-10 pt-3 text-[15px] leading-6 text-white/90">
+                      {item.content}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+            <!-- RIGHT: title -->
+            <div class="lg:col-span-8">
+              <div class="lg:pl-8">
+                <h2 class="text-right text-[72px] font-light leading-[0.9] tracking-[0.04em] md:text-[110px] xl:text-[138px]">
+                  {section.title}
+                </h2>
+
+                <p
+                  class="mt-8 text-right text-[20px] font-semibold leading-tight md:text-[28px]"
+                  style={`color:${section.accent};`}
+                >
+                  {section.subtitle}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+</section>
