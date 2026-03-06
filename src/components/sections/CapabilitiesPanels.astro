@@ -94,7 +94,10 @@ const sections = [
 ];
 ---
 
-<section class="bg-white">
+<section id="industries" class="bg-white">
+  <div class="container-site py-10">
+    <h2 class="text-[40px] font-light text-black">INDUSTRIES</h2>
+  </div>
   <div class="space-y-0">
     {sections.map((section) => (
       <section
@@ -142,9 +145,9 @@ const sections = [
             </div>
 
             <!-- RIGHT: title -->
-            <div class="lg:col-span-8">
+            <div class="overflow-hidden lg:col-span-8">
               <div class="lg:pl-8">
-                <h2 class="text-right text-[72px] font-light leading-[0.9] tracking-[0.04em] md:text-[110px] xl:text-[138px]">
+                <h2 class="max-w-full wrap-break-word text-right text-[42px] font-light leading-[0.92] tracking-[0.02em] sm:text-[56px] md:text-[84px] lg:text-[100px]">
                   {section.title}
                 </h2>
 
