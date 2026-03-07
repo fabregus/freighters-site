@@ -38,41 +38,11 @@ const {
 
       <!-- Headline -->
       <div class="pointer-events-none absolute inset-0 z-10 flex items-center">
-        <div class="w-full px-4 md:px-8">
-          <div
-            class="hero-marquee pb-[0.12em] text-5xl leading-[1.15] font-light tracking-[0.03em] md:text-[11vw] md:leading-[1.15] md:tracking-[0.04em]"
-          >
-            <div class="hero-marquee-content">
-              <div class="hero-marquee-track">
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-              </div>
-              <div class="hero-marquee-track" aria-hidden="true">
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-                <span class="hero-marquee-item">
-                  <span class="text-[#F5B400]">{titleLeft}</span>{" "}
-                  <span class="text-white">{titleRight}</span>
-                </span>
-              </div>
-            </div>
-          </div>
+        <div class="container-site">
+          <h1 class="hero-fade-left text-4xl font-light tracking-tight text-white md:text-5xl">
+            <span class="text-[#F5B400]">{titleLeft}</span>{" "}
+            <span class="text-white">{titleRight}</span>
+          </h1>
         </div>
       </div>
     </div>
@@ -83,39 +53,23 @@ const {
 </section>
 
 <style>
-  .hero-marquee {
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: visible;
+  .hero-fade-left {
+    animation: hero-fade-left 900ms ease-out both;
   }
 
-  .hero-marquee-content {
-    display: flex;
-    width: max-content;
-    animation: hero-marquee-left 36s linear infinite;
-  }
-
-  .hero-marquee-track {
-    display: flex;
-    flex-shrink: 0;
-  }
-
-  .hero-marquee-item {
-    white-space: nowrap;
-    margin-right: 4rem;
-  }
-
-  @keyframes hero-marquee-left {
+  @keyframes hero-fade-left {
     from {
-      transform: translateX(0);
+      opacity: 0;
+      transform: translateX(-28px);
     }
     to {
-      transform: translateX(-50%);
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-marquee-content {
+    .hero-fade-left {
       animation: none;
     }
   }

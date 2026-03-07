@@ -1,13 +1,13 @@
 ---
 type Props = {
-  image?: string;
+  videoSrc?: string;
   title?: string;
   buttonText?: string;
   buttonLink?: string;
 };
 
 const {
-  image = "/images/contact-cta.jpg",
+  videoSrc = "/video/contact_cta.mp4",
   title = "SECURE A FREIGHT FORWARDING SOLUTION THAT FITS YOUR NEEDS PERFECTLY.",
   buttonText = "Contact Us",
   buttonLink = "#contact",
@@ -16,11 +16,17 @@ const {
 
 <section class="relative w-full h-200 overflow-hidden">
   <!-- Background -->
-  <img
-    src={image}
-    alt="Freight solution"
+  <video
     class="absolute inset-0 w-full h-full object-cover"
-  />
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    aria-label="Freight solution"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black/35"></div>

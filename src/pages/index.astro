@@ -17,17 +17,20 @@ import Footer from "../components/Footer.astro";
   <Header lang="en" currentPath="/" />
   <Hero />
   <Intro
-    padding="pt-24"
-    titleTop="YOUR CARGO. OUR RESPONSIBILITY."
-    paragraphs={[
-      "Freighters delivers reliable, cross‑border logistics through advanced planning and a strong international network.  Every movement is handled with care, transparency, and speed, ensuring stability across all operational windows and full confidence in the flow. Global capabilities include import and export handling, customs coordination, and end‑to‑end visibility across major trade lanes.",
-    ]}
-  />
-  <Intro
-    padding="pt-12 pb-24"
-    titleTop="WHO WE ARE"
-    paragraphs={[
-      "Strategically located within the Athens International Airport and Powered by Bluegame technologies, we operate a modern, globally capable logistics system built for a fast‑moving market. Deep industry knowledge and a trusted partner ecosystem enable smart, flexible, and transparent freight solutions that support businesses end‑to‑end — from import and export handling to final delivery.",
+    padding="pt-24 pb-24"
+    sections={[
+      {
+        titleTop: "YOUR CARGO. OUR RESPONSIBILITY",
+        paragraphs: [
+          "Freighters delivers reliable, cross‑border logistics through advanced planning and a strong international network. Every movement is handled with care, transparency, and speed, ensuring stability across all operational windows and full confidence in the flow. Global capabilities include import and export handling, customs coordination, and end‑to‑end visibility across major trade lanes.",
+        ],
+      },
+      {
+        titleTop: "WHO WE ARE",
+        paragraphs: [
+          "Strategically located within the Athens International Airport and Powered by Bluegame technologies, we operate a modern, globally capable logistics system built for a fast‑moving market. Deep industry knowledge and a trusted partner ecosystem enable smart, flexible, and transparent freight solutions that support businesses end‑to‑end - from import and export handling to final delivery.",
+        ],
+      },
     ]}
   />
   <BigStatement text="At Freighters, we go beyond transportation." />

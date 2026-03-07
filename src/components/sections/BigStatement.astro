@@ -3,18 +3,28 @@ const { text = "At Freighters, we go beyond transportation." } = Astro.props;
 ---
 
 <section id="bluegame" class="bg-white">
-  <div class="container-site relative py-28 mb-8">
-    <div class="absolute top-0 left-0 h-1.5 w-2/5 bg-primary"></div>
+  <div class="container-site py-20 mb-8">
+    <blockquote class="relative mx-auto max-w-5xl border border-black/20 px-8 py-14 text-center md:px-14 md:py-18">
+      <span
+        aria-hidden="true"
+        class="pointer-events-none absolute -left-1 top-2 text-[76px] leading-none text-[#F5B400] md:text-[110px]"
+      >
+        &ldquo;
+      </span>
+      <span
+        aria-hidden="true"
+        class="pointer-events-none absolute -bottom-8 right-1 text-[76px] leading-none text-[#F5B400] md:text-[110px]"
+      >
+        &rdquo;
+      </span>
 
-    <h2
-      class="mx-auto max-w-5xl text-center font-light text-black
-             text-[52px] leading-[1.05]
-             md:text-[80px] md:leading-none
-             lg:text-[96px] lg:leading-[0.98]"
-    >
-      {text}
-    </h2>
-
-    <div class="absolute bottom-0 right-0 h-1.5 w-2/5 bg-primary"></div>
+      <p
+        class="mx-auto max-w-4xl font-light text-black
+               text-[36px] leading-[1.12]
+               md:text-[56px] md:leading-[1.04]"
+      >
+        {text}
+      </p>
+    </blockquote>
   </div>
 </section>
