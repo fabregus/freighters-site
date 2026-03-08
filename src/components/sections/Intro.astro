@@ -8,12 +8,12 @@ const {
 } = Astro.props;
 ---
 
-<section id="who-we-are" class={`relative bg-white ${padding}`}>
+<section class={`relative bg-white ${padding}`}>
   <div class="container-site">
     <div class="mb-12 h-1.5 w-1/3 bg-primary"></div>
     {
       sections.length > 1 ? (
-        <div class="grid gap-12 py-4 md:grid-cols-2">
+        <div id="who-we-are" class="grid gap-12 py-4 md:grid-cols-2">
           <div class="w-full max-w-xl md:col-start-1 md:row-start-1">
             <h2 class="text-[30px] font-medium leading-[1.08] tracking-tight text-black md:text-[36px]">
               <span class="block uppercase">{sections[0].titleTop}</span>
