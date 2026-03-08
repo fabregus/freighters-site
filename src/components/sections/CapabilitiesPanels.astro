@@ -3,6 +3,8 @@ const sections = [
   {
     title: "MARITIME",
     subtitle: "VESSEL-READY, TIME-CRITICAL FLOW",
+    description:
+      "Spare parts logistics for the maritime industry is a high-stakes, specialized service dedicated to ensuring the continuous operation of vessels worldwide. Unlike standard supply chains, maritime logistics must deliver critical components to moving delivery points (ships) that operate on haphazard schedules across different time zones and international waters.",
     bg: "#3B7480",
     text: "#F5F4EF",
     accent: "#F5F4EF",
@@ -36,6 +38,8 @@ const sections = [
   {
     title: "AVIATION",
     subtitle: "AIRPORT-DRIVEN, TIME-CRITICAL PRECISION",
+    description:
+      "Spare parts logistics for the aviation industry is a mission-critical service that acts as the hidden backbone of global flight operations. Because every minute an aircraft remains grounded represents a significant financial and reputational loss, this specialized field prioritizes speed, safety, and regulatory precision above all else.",
     bg: "#041F38",
     text: "#F5F4EF",
     accent: "#E4B200",
@@ -61,6 +65,8 @@ const sections = [
   {
     title: "HOSPITALITY",
     subtitle: "HOTEL-READY OPERATIONAL FLOW",
+    description:
+      "Hospitality logistics is a specialized service focused on maintaining the guest experience and operational continuity without visible disruption. In an industry where the show must go on 24/7, logistics providers must manage a massive variety of items - from high-tech kitchen components and HVAC parts to specialized furniture and linens - while remaining invisible to the guest.",
     bg: "#E4B200",
     text: "#F5F4EF",
     accent: "#F5F4EF",
@@ -105,7 +111,7 @@ const sections = [
         style={`background:${section.bg}; color:${section.text};`}
       >
         <div class="container-site py-16 lg:py-20">
-          <div class="grid gap-12 lg:grid-cols-12 lg:items-start">
+          <div class="grid gap-12 min-h-110 lg:grid-cols-12 lg:items-start">
             <!-- LEFT: dropdown list -->
             <div class="lg:col-span-4">
               <div class="space-y-5">
@@ -156,6 +162,10 @@ const sections = [
                   style={`color:${section.accent};`}
                 >
                   {section.subtitle}
+                </p>
+
+                <p class="mt-8 max-w-3xl ml-auto text-right text-[17px] leading-7 text-white/92">
+                  {section.description}
                 </p>
               </div>
             </div>
