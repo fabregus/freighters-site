@@ -3,13 +3,24 @@
 
 const phone = "+30 210 4444856";
 const email = "ops@freighters.gr";
+const addressLines = [
+  "El. Venizelos Airport",
+  "Spata, Bldg. 27, 2nd Floor - Off. 420",
+  "Athens, Greece",
+];
 ---
 
-<footer class="relative overflow-hidden bg-[#061A2A] text-white">
+<footer id="contact" class="relative overflow-hidden bg-[#061A2A] text-white">
   <div class="container-site relative pt-20 pb-28">
     <div class="grid gap-12 md:grid-cols-2">
       <!-- Left column -->
       <div class="space-y-10">
+        <div>
+          <p class="text-[34px] font-light tracking-[0.06em] text-white">
+            GET IN TOUCH
+          </p>
+        </div>
+
         <div>
           <p class="text-sm text-white/70">Call us</p>
           <a
@@ -28,6 +39,13 @@ const email = "ops@freighters.gr";
           >
             {email}
           </a>
+        </div>
+
+        <div>
+          <p class="text-sm text-white/70">Address</p>
+          <div class="mt-1 space-y-1 text-white/95">
+            {addressLines.map((line) => <p class="text-base">{line}</p>)}
+          </div>
         </div>
       </div>
 
