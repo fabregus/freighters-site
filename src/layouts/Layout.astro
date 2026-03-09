@@ -23,6 +23,57 @@ const { lang = "en", title = "Freighters" } = Astro.props;
   <body>
     <slot />
     <BackToTop />
+    <script is:inline>
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      function scrollToHash(hash, push = true) {
+        if (!hash || hash === "#") return;
+
+        const target = document.getElementById(hash.slice(1));
+        if (!target) return;
+
+        const rootStyles = window.getComputedStyle(document.documentElement);
+        const targetStyles = window.getComputedStyle(target);
+        const rootScrollPaddingTop =
+          Number.parseFloat(rootStyles.scrollPaddingTop) || 0;
+        const targetScrollMarginTop =
+          Number.parseFloat(targetStyles.scrollMarginTop) || 0;
+        const offset = targetScrollMarginTop || rootScrollPaddingTop;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+
+        if (push) {
+          window.history.pushState(null, "", hash);
+        }
+      }
+
+      document.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
+
+        const target = document.getElementById(href.slice(1));
+        if (!target) return;
+
+        event.preventDefault();
+        scrollToHash(href);
+      });
+
+      if (window.location.hash) {
+        window.requestAnimationFrame(() => {
+          scrollToHash(window.location.hash, false);
+        });
+      }
+    </script>
   </body>
 </html>
 

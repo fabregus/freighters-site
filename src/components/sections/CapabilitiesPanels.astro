@@ -110,10 +110,10 @@ const sections = [
         class="w-full"
         style={`background:${section.bg}; color:${section.text};`}
       >
-        <div class="container-site py-16 lg:py-20">
+        <div class="container-site py-16 lg:py-20" data-industries-panel>
           <div class="grid gap-12 min-h-110 lg:grid-cols-12 lg:items-start">
             <!-- LEFT: dropdown list -->
-            <div class="lg:col-span-4">
+            <div class="order-2 lg:order-1 lg:col-span-4">
               <div class="space-y-5">
                 {section.items.map((item) => (
                   <details class="group border-b border-white/55 pb-5">
@@ -151,20 +151,20 @@ const sections = [
             </div>
 
             <!-- RIGHT: title -->
-            <div class="overflow-hidden lg:col-span-8">
+            <div class="order-1 overflow-hidden lg:order-2 lg:col-span-8">
               <div class="lg:pl-8">
-                <h2 class="max-w-full wrap-break-word text-right text-[42px] font-light leading-[0.92] tracking-[0.02em] sm:text-[56px] md:text-[84px] lg:text-[100px]">
+                <h2 class="max-w-full wrap-break-word lg:text-right text-[42px] font-light leading-[0.92] tracking-[0.02em] sm:text-[56px] md:text-[84px] lg:text-[100px]">
                   {section.title}
                 </h2>
 
                 <p
-                  class="mt-8 text-right text-[20px] font-semibold leading-tight md:text-[28px]"
+                  class="mt-8 lg:text-right text-[20px] font-semibold leading-tight md:text-[28px]"
                   style={`color:${section.accent};`}
                 >
                   {section.subtitle}
                 </p>
 
-                <p class="mt-8 max-w-3xl ml-auto text-right text-[17px] leading-7 text-white/92">
+                <p class="mt-8 max-w-3xl lg:ml-auto lg:text-right text-[17px] leading-7 text-white/92">
                   {section.description}
                 </p>
               </div>
@@ -175,3 +175,41 @@ const sections = [
     ))}
   </div>
 </section>
+
+<script is:inline>
+  const industriesPanels = Array.from(
+    document.querySelectorAll("[data-industries-panel]"),
+  );
+
+  if (industriesPanels.length) {
+    let rafId = 0;
+
+    const syncIndustriesHeights = () => {
+      industriesPanels.forEach((panel) => {
+        panel.style.minHeight = "";
+      });
+
+      const maxHeight = industriesPanels.reduce(
+        (max, panel) => Math.max(max, panel.scrollHeight),
+        0,
+      );
+
+      industriesPanels.forEach((panel) => {
+        panel.style.minHeight = `${maxHeight}px`;
+      });
+    };
+
+    const scheduleSync = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(syncIndustriesHeights);
+    };
+
+    scheduleSync();
+    window.addEventListener("resize", scheduleSync);
+    window.addEventListener("load", scheduleSync);
+
+    document
+      .querySelectorAll("#industries details")
+      .forEach((item) => item.addEventListener("toggle", scheduleSync));
+  }
+</script>

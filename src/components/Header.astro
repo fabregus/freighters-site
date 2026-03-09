@@ -17,7 +17,7 @@ const { nav = defaultNav } = Astro.props;
       </a>
 
       <!-- center: desktop nav -->
-      <ul class="hidden flex-1 justify-center gap-16 text-white/90 md:flex">
+      <ul class="hidden flex-1 justify-center gap-16 text-white/90 lg:flex">
         {
           nav.map((item) => (
             <li>
@@ -37,7 +37,7 @@ const { nav = defaultNav } = Astro.props;
           href="https://portal.bluegameitsolutions.com/login"
           target="_blank"
           rel="noopener"
-          class="button-primary button-primary--header inline-flex"
+          class="button-primary button-primary--header hidden! lg:inline-flex!"
         >
           <img
             src="/images/bluegame-logo.png"
@@ -53,22 +53,20 @@ const { nav = defaultNav } = Astro.props;
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
+                stroke-linejoin="round"></path>
               <path
                 d="M10 12H20M20 12L17 9M20 12L17 15"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
+                stroke-linejoin="round"></path>
             </svg>
           </span>
         </a>
 
         <!-- mobile menu button -->
         <button
-          class="md:hidden inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
+          class="lg:hidden inline-flex h-10 w-10 items-center justify-center text-white/90 hover:text-white transition"
           aria-label="Open menu"
           data-menu-open
         >
@@ -159,15 +157,13 @@ const { nav = defaultNav } = Astro.props;
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
+              stroke-linejoin="round"></path>
             <path
               d="M10 12H20M20 12L17 9M20 12L17 15"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
+              stroke-linejoin="round"></path>
           </svg>
         </span>
       </a>
@@ -217,7 +213,9 @@ const { nav = defaultNav } = Astro.props;
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
-    transition: box-shadow 180ms ease, filter 180ms ease;
+    transition:
+      box-shadow 180ms ease,
+      filter 180ms ease;
     box-shadow:
       0 12px 34px rgba(8, 16, 44, 0.28),
       inset 0 -2px 0 rgba(7, 15, 40, 0.65),
@@ -241,7 +239,9 @@ const { nav = defaultNav } = Astro.props;
     );
     transform: translateX(-130%);
     opacity: 0;
-    transition: transform 620ms ease, opacity 620ms ease;
+    transition:
+      transform 620ms ease,
+      opacity 620ms ease;
     pointer-events: none;
   }
 
@@ -257,7 +257,9 @@ const { nav = defaultNav } = Astro.props;
     );
     opacity: 0;
     transform: scale(0.85);
-    transition: opacity 260ms ease, transform 260ms ease;
+    transition:
+      opacity 260ms ease,
+      transform 260ms ease;
     pointer-events: none;
   }
 
