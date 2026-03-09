@@ -3,20 +3,23 @@ const fallbackImage = "/images/services/ocean-freight.jpg";
 const { title, desc, image = fallbackImage } = Astro.props;
 ---
 
-<article class="group relative block overflow-hidden border border-black/10 bg-white">
+<article
+  class="group relative block overflow-hidden border border-black/10 bg-white focus:outline-none"
+  tabindex="0"
+>
   <!-- Media -->
   <div class="relative aspect-[3/4] w-full overflow-hidden">
     <img
       src={image}
       alt={title}
       onerror={`this.onerror=null;this.src='${fallbackImage}'`}
-      class="h-full w-full object-cover transition-transform duration-700 ease-out md:group-hover:scale-[1.06]"
+      class="h-full w-full object-cover transition-transform duration-700 ease-out md:group-hover:scale-[1.06] md:group-focus:scale-[1.06]"
       loading="lazy"
     />
 
     <!-- darken layer -->
     <div
-      class="absolute inset-0 bg-black/20 transition-opacity duration-500 md:group-hover:opacity-0"
+      class="absolute inset-0 bg-black/20 transition-opacity duration-500 md:group-hover:opacity-0 md:group-focus:opacity-0"
     >
     </div>
 
@@ -25,7 +28,8 @@ const { title, desc, image = fallbackImage } = Astro.props;
       <div
       class="text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95
                transition-all duration-500 ease-out
-               md:group-hover:translate-y-2 md:group-hover:opacity-0"
+               md:group-hover:translate-y-2 md:group-hover:opacity-0
+               md:group-focus:translate-y-2 md:group-focus:opacity-0"
       >
         {title}
       </div>
@@ -52,7 +56,8 @@ const { title, desc, image = fallbackImage } = Astro.props;
     class="absolute inset-0 hidden flex-col justify-end bg-[#F5B400]
            translate-y-[12%] opacity-0
            transition-all duration-500 ease-out
-           group-hover:translate-y-0 group-hover:opacity-100 md:flex"
+           group-hover:translate-y-0 group-hover:opacity-100
+           group-focus:translate-y-0 group-focus:opacity-100 md:flex"
   >
     <div class="px-10 pb-10 pt-24">
       <p class="whitespace-pre-line text-[14px] leading-6 text-white/95">
