@@ -26,7 +26,7 @@ const { title, desc, image = fallbackImage } = Astro.props;
     <!-- title on image (default) -->
     <div class="absolute inset-x-0 bottom-8 flex justify-center px-6">
       <div
-      class="text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95
+        class="text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95
                transition-all duration-500 ease-out
                md:group-hover:translate-y-2 md:group-hover:opacity-0
                md:group-focus:translate-y-2 md:group-focus:opacity-0"
@@ -37,18 +37,10 @@ const { title, desc, image = fallbackImage } = Astro.props;
   </div>
 
   <!-- Mobile details -->
-  <div
-    class="bg-[#F5B400] px-10 pb-10 pt-8 md:hidden"
-  >
+  <div class="bg-[#F5B400] p-10 md:hidden">
     <p class="whitespace-pre-line text-[14px] leading-6 text-white/95">
       {desc}
     </p>
-
-    <div
-      class="mt-10 text-center whitespace-pre-line text-[22px] tracking-[0.12em] text-white/95"
-    >
-      {title}
-    </div>
   </div>
 
   <!-- Desktop hover overlay -->
